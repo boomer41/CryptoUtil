@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoUtil", "CryptoUtil\CryptoUtil.csproj", "{1201FE99-BA77-4807-8E58-8E13DEF9F5BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoUtil.Tests", "CryptoUtil.Tests\CryptoUtil.Tests.csproj", "{477D4E81-6AF1-4219-A6C4-6C391EC2813F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1201FE99-BA77-4807-8E58-8E13DEF9F5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1201FE99-BA77-4807-8E58-8E13DEF9F5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1201FE99-BA77-4807-8E58-8E13DEF9F5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1201FE99-BA77-4807-8E58-8E13DEF9F5BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477D4E81-6AF1-4219-A6C4-6C391EC2813F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477D4E81-6AF1-4219-A6C4-6C391EC2813F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477D4E81-6AF1-4219-A6C4-6C391EC2813F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477D4E81-6AF1-4219-A6C4-6C391EC2813F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
