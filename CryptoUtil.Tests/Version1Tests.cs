@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace CryptoUtil.Tests
@@ -41,6 +42,16 @@ namespace CryptoUtil.Tests
             var result = _cryptoHelper.DecryptString("VerifyInvalidInputs", value);
 
             Assert.IsNull(result, $"{value} must return an null while decrypting");
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        public void TestInvalidInputsForEncrypt(string value)
+        {
+            Assert.Catch(
+                typeof(ArgumentException),
+                () => _cryptoHelper.EncryptString("TestInvalidInputsForEncrypt", value),
+                "Call to EncryptString must yield ArgumentException");
         }
 
     }

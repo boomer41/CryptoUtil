@@ -97,6 +97,11 @@ namespace CryptoUtil.Version1
 
         public string Encrypt(string keyId, byte[] dataToEncrypt)
         {
+            if (dataToEncrypt == null || dataToEncrypt.Length == 0)
+            {
+                throw new ArgumentException($"{nameof(dataToEncrypt)} must be non null and must have contents.");
+            }
+
             var key = LoadKey(keyId);
 
             byte[] encryptedData;
