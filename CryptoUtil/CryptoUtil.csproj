@@ -11,6 +11,7 @@
         <Copyright>2019 Stephan Brunner</Copyright>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <SignAssembly>true</SignAssembly>
     </PropertyGroup>
 
     <ItemGroup>
