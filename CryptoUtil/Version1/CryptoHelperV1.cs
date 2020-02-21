@@ -113,17 +113,16 @@ namespace CryptoUtil.Version1
                 aes.GenerateIV();
                 aes.Key = key.EncryptionKey;
 
-                using (var output = new MemoryStream())
-                {
-                    using (var cryptoStream =
-                        new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write, false))
-                    {
-                        cryptoStream.Write(dataToEncrypt);
-                    }
+                using var output = new MemoryStream();
 
-                    encryptedData = output.ToArray();
-                    iv = aes.IV;
+                using (var cryptoStream =
+                    new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write, false))
+                {
+                    cryptoStream.Write(dataToEncrypt);
                 }
+
+                encryptedData = output.ToArray();
+                iv = aes.IV;
             }
 
             var dataToSign = new byte[iv.Length + encryptedData.Length];
