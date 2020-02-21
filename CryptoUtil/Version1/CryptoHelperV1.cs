@@ -64,23 +64,22 @@ namespace CryptoUtil.Version1
                     0,
                     encryptedData.Length);
 
-                using (var aes = Aes.Create())
+                using var aes = Aes.Create();
+
+                aes.Mode = CipherMode.CBC;
+                aes.IV = iv;
+                aes.Key = key.EncryptionKey;
+
+                using var output = new MemoryStream();
+
+                using (var cryptoStream =
+                    new CryptoStream(output, aes.CreateDecryptor(), CryptoStreamMode.Write))
                 {
-                    aes.Mode = CipherMode.CBC;
-                    aes.IV = iv;
-                    aes.Key = key.EncryptionKey;
-
-                    using (var output = new MemoryStream())
-                    {
-                        using (var cryptoStream =
-                            new CryptoStream(output, aes.CreateDecryptor(), CryptoStreamMode.Write, false))
-                        {
-                            cryptoStream.Write(encryptedData);
-                        }
-
-                        return output.ToArray();
-                    }
+                    cryptoStream.Write(encryptedData, 0, encryptedData.Length);
                 }
+
+                return output.ToArray();
+
             }
             catch (Exception)
             {
@@ -116,9 +115,9 @@ namespace CryptoUtil.Version1
                 using var output = new MemoryStream();
 
                 using (var cryptoStream =
-                    new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write, false))
+                    new CryptoStream(output, aes.CreateEncryptor(), CryptoStreamMode.Write))
                 {
-                    cryptoStream.Write(dataToEncrypt);
+                    cryptoStream.Write(dataToEncrypt, 0, dataToEncrypt.Length);
                 }
 
                 encryptedData = output.ToArray();

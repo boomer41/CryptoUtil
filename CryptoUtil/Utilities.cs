@@ -16,7 +16,7 @@ namespace CryptoUtil
             'c', 'd', 'e', 'f'
         };
 
-        internal static string EncodeHex(Span<byte> data)
+        internal static string EncodeHex(byte[] data)
         {
             var stringBuilder = new StringBuilder(data.Length * 2);
 
